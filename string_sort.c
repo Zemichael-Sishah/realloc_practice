@@ -23,31 +23,22 @@ void sort_string_arr(char **array, int size) {
 // Reallocate the array 
 void realloc_string_arr(char ***array,int old_size, int new_size) {
     printf("WWWWWWWWWWWWWAAAAAAAAAAAATHAP\n");
-    printf("%p this is it\n", **array);
-    printf("%c first letter\n", ***array);
+   
+    void *temp = realloc(*array, new_size);
 
-    int count = 0;
-    //char *i;
-    //i = *array;
-    //printf("%p this is what i is\n", i);
-    //printf("%c first letter in i\n", *i);
-    int j = 0;
-    while( (**array) != NULL && j < 10 ){
-
-        //printf("%p this is what i is in the loop\n", i);
-        printf("%c hey\n ", **(array[j]));
-        //(i++);
-        count++;
-        j++;
-        
+    printf("asdfkhjle\n");
+    if(temp == NULL){
+        printf("failed\n");
+        return 1;
     }
-
-    printf("num of words %d \n", count);
-
-
-
-
-
+    
+    printf("success\n");
+    *array = temp;
+    
+    for( int i = old_size; i < new_size; i++){
+        (*array)[i] = NULL;
+    }
+    
     if(***array == NULL){
         printf("***array is null\n");
     }
