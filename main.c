@@ -4,14 +4,17 @@
 #include "main.h"
 
 int main() {
-
+    printf("IN MAIN \n\n\n");
     char **strings = NULL;
     int size = 5; // Initial size
 
     alloc_string_arr(&strings, size); // Allocate initial memory for strings
    
+    printf("passed alloc_string_arr(&strings, size)\n\n");
     const char *filename = "languages.txt"; 
+    printf("going into read_strings \n\n");
     int final_size = read_strings(filename, &strings); // Read strings from a text file
+    printf("out of read_strings\n\n");
     
     printf("---The strings original--- \n");
     print_string_arr(strings, final_size);
