@@ -25,7 +25,7 @@ void sort_string_arr(char **array, int size) {
 void realloc_string_arr(char ***array,int old_size, int new_size) {
     //printf("WWWWWWWWWWWWWAAAAAAAAAAAATHAP\n");
    
-    void *temp = realloc(*array, new_size);
+    void *temp = realloc(*array, sizeof(**array)*new_size);
 
     //printf("asdfkhjle\n");
     if(temp == NULL){
@@ -33,16 +33,17 @@ void realloc_string_arr(char ***array,int old_size, int new_size) {
         return;
     }
     
-    //printf("success\n");
+    printf("success\n");
     *array = temp;
-    char buffer[256];
     
-    printf("*array[5] is %c\n", *(*array)[6]);
+    
+    printf("*array[5] is %c\n", *(*array)[2]);
     for( int i = old_size; i < new_size; i++){
+        char buffer[256] = {0};
         printf("i is %d\n", i);
         //printf("**array origin is %p\n", **array);
         //printf("*array[i] is %c\n", (*array)[i-1]);
-        (*array)[i] = 'b';
+        (*array)[i] = buffer;
         //printf("**array origin is %p\n", **array);
         //printf("*array[i] is %c\n", (*array)[i]);
     }
