@@ -4,17 +4,24 @@
 
 // Sort the array 
 void sort_string_arr(char **array, int size) {
+    printf("hey\n");
     printf("WASSSSSSSSSSSAAAAAAAAAAAAA\n");
+    printf("hey\n");
+    printf("Word is %c\n", *(*array)[0]);
+    printf("Word is %c\n", *(*array)[1]);
 
     for(int i = 0; i < size - 1; i++){
+        printf("in the loop");
         for(int j = i + 1; j < size; j++){
             printf("in the compare");
-            if(strcmp((**array),(**array)) == 1){
-                char temp = (**array);
-                (**array) = (**array);
-                (**array) = temp;
+            if(strcmp((*array)[i],(*array)[j]) == 1){
+                char *temp = malloc(sizeof(**array));
+                temp = (*array)[i];
+                (*array)[i] = (*array)[j];
+                (*array)[j] = temp;
+                free(temp);
 
-                printf("Swapped %p and %p\n", (**array), (**array));
+                //printf("Swapped %p and %p\n", (**array), (**array));
             }
         }
     }
